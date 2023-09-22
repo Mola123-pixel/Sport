@@ -1,0 +1,43 @@
+<div class="container">
+  <div>
+    <h2>My Amazing favourite American Sport App</h2>
+  </div>
+  <div class="table-responsive mb-8">
+    <table class='table table-bordered table-striped table-hover mt-3'>
+      <thead class="thead-light border-0">
+        <tr>
+          <th class="border-right-0"><span class="pl-2">Name</span></th>
+          <th class="border-right-0 border-left-0">Enabled</th>
+          <th class="border-right-0 border-left-0">Valid</th>
+          <th class="border-right-0 border-left-0">Authorised</th>
+          <th class="border-right-0 border-left-0">Palindrome</th>
+          <th class="border-right-0 border-left-0">Favourite Sports</th>
+          <th class="border-right-0 border-left-0">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="People && People.totalCount > 0">
+        <tr *ngFor="let People of People.items">
+          <td class="border-right-0 pl-3">{{People.Firstname}}{{People.Lastname}}</td>
+          <td class="border-right-0 border-left-0">{{People.isEnabled}}</td>
+          <td class="border-right-0 border-left-0">{{People.isValid}}</td>
+          <td class="border-right-0 border-left-0">{{People.isAuthorised}}</td>
+          <td class="border-right-0 border-left-0">{{People.isPalindrome}}</td>
+          <td class="border-right-0 border-left-0">American Football, BasketBall, Baseball</td>
+          <td class="border-right-0 border-left-0">
+            <a class="text-dark" [routerLink]="['/updatePersonalDetails/', People.PersonId]" title="Edit">
+              <i class="fas fa-edit"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Uncomment this paagination ... nice to have feature -->
+<!-- 
+  <div *ngIf="courses">
+    <ngb-pagination [(page)]="filter.pageNumber" [pageSize]="filter.pageSize" (pageChange)="pageChange($event)"
+      [collectionSize]="People.totalCount"></ngb-pagination>
+  </div> -->
+
+</div>
